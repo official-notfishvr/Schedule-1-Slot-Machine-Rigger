@@ -1,8 +1,9 @@
-### GENERAL INFORMATION:
+using [MelonLoader](https://github.com/LavaGang/MelonLoader) for modloader 
 
-- An Example Mod for [MelonLoader](https://github.com/LavaGang/MelonLoader).
+# Installing
 
----
+download "MelonLoader.Installer.exe" form [MelonLoader](https://github.com/LavaGang/MelonLoader) use v0.6.6 Open-Beta
+download "ScheduleOneMod.dll" and put in "Schedule 1\Mods"
 
 ### LICENSING & CREDITS:
 
