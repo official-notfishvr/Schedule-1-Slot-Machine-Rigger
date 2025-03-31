@@ -9,19 +9,19 @@ using Il2CppFishNet.Object;
 using Il2CppScheduleOne.Casino.UI;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
 
-namespace ScheduleIMod
+namespace Schedule1Mod
 {
     public static class BuildInfo
     {
-        public const string Name = "ScheduleIMod";
+        public const string Name = "Schedule1Mod";
         public const string Description = "Schedule 1 SlotMachine Rigger";
         public const string Author = "notfishvr";
         public const string Company = null;
-        public const string Version = "1.1.0";
+        public const string Version = "0.1";
         public const string DownloadLink = null;
     }
 
-    public class ScheduleIModGUI : MelonMod
+    public class Schedule1ModGUI : MelonMod
     {
         private Rect windowRect = new Rect(45, 65, 350, 465);
         private bool showGUI = false;
@@ -34,11 +34,11 @@ namespace ScheduleIMod
             try
             {
                 outcomeNames = System.Enum.GetNames(typeof(SlotMachine.EOutcome));
-                MelonLogger.Msg("ScheduleIModGUI Initialized");
+                MelonLogger.Msg("Schedule1ModGUI Initialized");
             }
             catch (System.Exception e)
             {
-                MelonLogger.Error($"Error in ScheduleIModGUI Initialization: {e.Message}");
+                MelonLogger.Error($"Error in Schedule1ModGUI Initialization: {e.Message}");
             }
         }
 
@@ -58,7 +58,7 @@ namespace ScheduleIMod
                 if (showGUI)
                 {
                     System.Action<int> value = id => DrawWindow(id);
-                    windowRect = GUI.Window(0, windowRect, value, "Schedule I Mod GUI");
+                    windowRect = GUI.Window(0, windowRect, value, "Schedule 1 Mod GUI");
 
                     GUI.DragWindow(new Rect(windowRect));
                 }
@@ -91,7 +91,7 @@ namespace ScheduleIMod
                 {
                     if (System.Enum.TryParse<SlotMachine.EOutcome>(outcomeNames[selectedOutcomeIndex], out var selectedOutcome))
                     {
-                        ScheduleIMod.SetRigging_SlotMachine(true, selectedOutcome);
+                        Schedule1Mod.SetRigging_SlotMachine(true, selectedOutcome);
                         MelonLogger.Msg($"Forced Outcome: {selectedOutcome}");
                     }
                     else
@@ -138,7 +138,7 @@ namespace ScheduleIMod
         }
     }
 
-    public class ScheduleIMod : MelonMod
+    public class Schedule1Mod : MelonMod
     {
         private static bool isRiggingEnabled_SlotMachine = false;
 
@@ -147,7 +147,7 @@ namespace ScheduleIMod
 
         private static SlotMachine.EOutcome forcedOutcome = SlotMachine.EOutcome.Jackpot;
         private static SlotMachine.ESymbol[] forcedSymbols = null;
-        public ScheduleIModGUI scheduleIModGUI = new ScheduleIModGUI();
+        public Schedule1ModGUI Schedule1ModGUI = new Schedule1ModGUI();
 
         public static bool enableExtraCardMods = true;
         public static PlayingCard.ECardValue forcedCardValue = PlayingCard.ECardValue.Ace;
@@ -161,23 +161,23 @@ namespace ScheduleIMod
 
         public override void OnUpdate()
         {
-            scheduleIModGUI.OnUpdate();
+            Schedule1ModGUI.OnUpdate();
         }
 
         [System.Obsolete]
         public override void OnInitializeMelon()
         {
-            this.scheduleIModGUI = new ScheduleIModGUI();
-            scheduleIModGUI.OnInitializeMelon();
+            this.Schedule1ModGUI = new Schedule1ModGUI();
+            Schedule1ModGUI.OnInitializeMelon();
 
             HarmonyInstance harmony = new HarmonyInstance(this.GetType().Namespace);
             harmony.Patch(
                 typeof(SlotMachine).GetMethod(nameof(SlotMachine.GetRandomSymbol)),
-                postfix: new Harmony.HarmonyMethod(typeof(ScheduleIMod).GetMethod(nameof(GetRandomSymbolPatch_SlotMachine)))
+                postfix: new Harmony.HarmonyMethod(typeof(Schedule1Mod).GetMethod(nameof(GetRandomSymbolPatch_SlotMachine)))
             );
             harmony.Patch(
                 typeof(SlotMachine).GetMethod("EvaluateOutcome", BindingFlags.NonPublic ),
-                prefix: new Harmony.HarmonyMethod(typeof(ScheduleIMod).GetMethod(nameof(EvaluateOutcomePatch_SlotMachine)))
+                prefix: new Harmony.HarmonyMethod(typeof(Schedule1Mod).GetMethod(nameof(EvaluateOutcomePatch_SlotMachine)))
             );
 
             MelonLogger.Msg("Initialized!");
@@ -185,7 +185,7 @@ namespace ScheduleIMod
 
         public override void OnGUI()
         {
-            scheduleIModGUI.OnGUI();
+            Schedule1ModGUI.OnGUI();
         }
 
         public static void SetRigging_SlotMachine(bool enabled, SlotMachine.EOutcome outcome = SlotMachine.EOutcome.Jackpot)

@@ -1,15 +1,15 @@
 ﻿using System.Reflection;
 using MelonLoader;
 
-[assembly: AssemblyTitle(ScheduleIMod.BuildInfo.Description)]
-[assembly: AssemblyDescription(ScheduleIMod.BuildInfo.Description)]
-[assembly: AssemblyCompany(ScheduleIMod.BuildInfo.Company)]
-[assembly: AssemblyProduct(ScheduleIMod.BuildInfo.Name)]
-[assembly: AssemblyCopyright("Created by " + ScheduleIMod.BuildInfo.Author)]
-[assembly: AssemblyTrademark(ScheduleIMod.BuildInfo.Company)]
-[assembly: AssemblyVersion(ScheduleIMod.BuildInfo.Version)]
-[assembly: AssemblyFileVersion(ScheduleIMod.BuildInfo.Version)]
-[assembly: MelonInfo(typeof(ScheduleIMod.ScheduleIMod), ScheduleIMod.BuildInfo.Name, ScheduleIMod.BuildInfo.Version, ScheduleIMod.BuildInfo.Author, ScheduleIMod.BuildInfo.DownloadLink)]
+[assembly: AssemblyTitle(Schedule1Mod.BuildInfo.Description)]
+[assembly: AssemblyDescription(Schedule1Mod.BuildInfo.Description)]
+[assembly: AssemblyCompany(Schedule1Mod.BuildInfo.Company)]
+[assembly: AssemblyProduct(Schedule1Mod.BuildInfo.Name)]
+[assembly: AssemblyCopyright("Created by " + Schedule1Mod.BuildInfo.Author)]
+[assembly: AssemblyTrademark(Schedule1Mod.BuildInfo.Company)]
+[assembly: AssemblyVersion(Schedule1Mod.BuildInfo.Version)]
+[assembly: AssemblyFileVersion(Schedule1Mod.BuildInfo.Version)]
+[assembly: MelonInfo(typeof(Schedule1Mod.Schedule1Mod), Schedule1Mod.BuildInfo.Name, Schedule1Mod.BuildInfo.Version, Schedule1Mod.BuildInfo.Author, Schedule1Mod.BuildInfo.DownloadLink)]
 [assembly: MelonColor()]
 
 // Create and Setup a MelonGame Attribute to mark a Melon as Universal or Compatible with specific Games.
