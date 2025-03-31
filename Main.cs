@@ -1,4 +1,4 @@
-﻿using MelonLoader;
+using MelonLoader;
 using UnityEngine;
 using Il2CppScheduleOne.Casino;
 using Harmony;
@@ -24,7 +24,7 @@ namespace Schedule1Mod
     public class Schedule1ModGUI : MelonMod
     {
         private Rect windowRect = new Rect(45, 65, 350, 465);
-        private bool showGUI = false;
+        private bool showGUI = true;
         private SlotMachine.EOutcome selectedOutcome = SlotMachine.EOutcome.Jackpot;
         private string[] outcomeNames;
         private int selectedOutcomeIndex = 0;
@@ -107,7 +107,7 @@ namespace Schedule1Mod
 
                     foreach (PlayingCard card in allCards)
                     {
-                        LogCardDetails(card);   
+                        LogCardDetails(card);
                     }
                 }
 
@@ -176,7 +176,7 @@ namespace Schedule1Mod
                 postfix: new Harmony.HarmonyMethod(typeof(Schedule1Mod).GetMethod(nameof(GetRandomSymbolPatch_SlotMachine)))
             );
             harmony.Patch(
-                typeof(SlotMachine).GetMethod("EvaluateOutcome", BindingFlags.NonPublic ),
+                typeof(SlotMachine).GetMethod("EvaluateOutcome", BindingFlags.NonPublic),
                 prefix: new Harmony.HarmonyMethod(typeof(Schedule1Mod).GetMethod(nameof(EvaluateOutcomePatch_SlotMachine)))
             );
 
