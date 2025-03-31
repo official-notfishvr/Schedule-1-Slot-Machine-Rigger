@@ -1,6 +1,6 @@
 ---
 
-# TestMod
+# Schedule 1 Slot Machine Rigger
 
 This is a mod built using [MelonLoader](https://github.com/LavaGang/MelonLoader) as its modloader framework. This README provides instructions for installing and using the mod, along with licensing and credit information.
 
@@ -17,7 +17,7 @@ This is a mod built using [MelonLoader](https://github.com/LavaGang/MelonLoader)
 2. **Install MelonLoader:**  
    Run the installer and follow the on-screen instructions to install MelonLoader for your target game.
 
-3. **Install TestMod:**  
+3. **Install Schedule 1 Slot Machine Rigger:**  
    - Download the `ScheduleOneMod.dll` file.  
    - Place the DLL file in the `Schedule 1\Mods` folder within your game directory.  
 
@@ -29,7 +29,6 @@ After completing the installation steps:
 
 ## Licensing & Credits
 
-TestMod is licensed under the [Apache License, Version 2.0](https://github.com/LavaGang/TestMod/blob/master/LICENSE.md).  
 [MelonLoader](https://github.com/LavaGang/MelonLoader)
 
 ---
